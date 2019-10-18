@@ -1,0 +1,256 @@
+/* ------------------------------ Global ------------------------- */
+:root { /* Used also in the javascript */
+  --main-bg-color	:	rgb(37,40,48);
+  --red-color		:	rgb(142,27,60);
+  --blue-color		:	rgb(12,73,97);
+  --green-color		:	rgb(65,99,47);
+  --gray-color		:	rgb(67,72,87);
+}
+html { /* For ie */
+  --main-bg-color	:	rgb(37,40,48);
+  --red-color		:	rgb(142,27,60);
+  --blue-color		:	rgb(12,73,97);
+  --green-color		:	rgb(65,99,47);
+  --gray-color		:	rgb(67,72,87);
+}
+
+body {
+	background-color:var(--main-bg-color);
+	color:white;
+	font-family:"Candara";
+}
+.container-fluid {
+	width:90%;
+	margin-bottom:50px;
+}
+
+/* Tools class */
+.noMouse {
+	-webkit-user-select: none;  /* Chrome all / Safari all */
+	-moz-user-select: none;     /* Firefox all */
+	-ms-user-select: none;      /* IE 10+ */
+	user-select: none;          /* Likely future */  
+}
+.debug {
+	background:green;
+	min-height:25px;
+	border-radius:25px;
+	border:1px solid blue;
+}
+.hidden {
+	display:none;
+}
+.spacer {
+	height:5vh;
+}
+
+/* ------------------------------ Header ------------------------- */
+
+header {
+	padding:12px;
+	margin:12px;
+	border-bottom:1px solid var(--gray-color);
+	cursor:default;
+}
+header h1 {
+	text-align:center;
+	text-transform:uppercase;
+	letter-spacing:0.25em;	
+	margin-bottom:15px;
+	color:rgb(190,195,205);
+	cursor:default;
+}
+
+
+/* ------------------------------ Navigation ------------------------- */
+nav {
+	padding:6px;
+	margin-top:12px;
+	border-right:1px solid var(--gray-color);
+}
+nav header {
+	text-align:center;
+	text-transform:uppercase;
+	letter-spacing:0.15em;	
+	margin-bottom:15px;
+	color:rgb(107,112,127);
+	cursor:default;
+}
+
+nav ul {
+	padding:0;
+}
+
+/* All li */
+nav li {
+	list-style-type:none;
+	padding:13px 12px;	
+	border-radius:9px;
+}
+nav li a {
+	color:rgb(207,210,218);
+	display:block;
+	outline:0;
+}
+nav li:hover{
+	background:var(--gray-color);
+}
+nav li a:hover {
+	color:white;
+	text-decoration:none;
+}
+
+/* Selected li */
+nav li.selected {
+	background:rgb(25,151,198);
+	color:var(--main-bg-color);
+	font-weight:600;
+	text-decoration:underline;
+}
+nav li.selected a {
+	color:var(--main-bg-color);
+}
+nav li.selected:hover{
+	background:rgb(25,151,198);
+}
+nav li.selected a:hover {
+	color:var(--main-bg-color);
+}
+
+
+
+/* ------------------------------ Form part ------------------------- */
+label {
+	color:rgb(208,212,222);
+}
+
+.input-obscure {
+	background-color:rgb(67,72,87);
+	color:rgb(240,245,250);
+	border:none;
+}
+.input-obscure:focus {
+	background-color:rgb(87,92,107);
+	color:rgb(200,202, 205);
+}
+.form-control::-moz-placeholder {
+	color:rgb(183,188,200);
+	opacity: 1;
+	font-style:italic;
+}
+.form-control:-ms-input-placeholder {
+	color:rgb(183,188,200);
+	font-style:italic;
+}
+.form-control::-webkit-input-placeholder {
+	color:rgb(183,188,200);
+	font-style:italic;
+}
+
+.input-failed {
+	border:rgb(130,25,25) 1px solid;
+	background:rgb(55,35,35);
+}
+.label-failed {
+	color:rgb(160,25,25);
+	font-style:italic;
+}
+
+.submit-obscure {
+	background-color:rgb(87,92,107);
+	border:rgb(67,72,87);
+	color:rgb(183,188,200);
+}
+.submit-obscure:hover {
+	background-color:rgb(107,112,127);
+	color:rgb(197,202,217);
+}
+
+/* ------------------------------ Main part ------------------------- */
+
+main, section {
+	margin-top:12px;
+	text-align:justify;
+	cursor:default;
+}
+
+/* ------------------------------ Errors ------------------------- */
+
+#error_form {
+	background:rgba(0,0,0,0.8);
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	z-index:5;
+	
+	text-align:center;
+}
+#error_form .wrapper_error {
+	background:rgba(0,0,0,0.8);
+	position:relative;
+	top:0;
+	left:0;
+	width:60%;
+	height:100%;
+	z-index:5;
+	margin:auto;
+	
+	text-align:center;
+}
+#error_form h1 {
+	color:rgb(220,60,60);
+	padding:50px;	
+}
+#error_form ul {
+	/* list-style-type:cjk-ideographic; */
+	list-style-type:none;
+}
+#error_form strong {
+	color:rgb(60,220,220);
+}
+
+/* ------------------------------ Auto-completion module ------------------------- */
+
+.autocomplete {
+	padding:0;
+	margin:0;
+}
+.autocomplete li {
+	list-style-type:none;
+	padding:0;
+}
+.autocomplete li.choosen {
+	font-style:italic;
+	background:rgb(97,102,117);
+}
+.autocomplete li.choosen:before {
+	content: "→ ";
+	color:rgb(25,151,198);
+}
+.autocompleteItem {
+	position:absolute;
+	width:100%;
+	background:rgb(77,82,97);
+	border-top:1px solid rgb(87,92,107);
+	height:35px;
+	line-height:35px;
+	text-indent:10px;
+	z-index:1;
+	cursor:pointer;
+	color:rgb(210,210,210);
+}
+
+.autocompleteItem:hover {
+	background:rgb(107,112,127);
+	border-top:1px solid rgb(87,92,107);
+	color:white;
+}
+.autocompleteItem .match {
+	color:rgb(25,151,198);
+}
+.autocompleteItem:hover .match {
+	color:rgb(40,181,238);
+}
+

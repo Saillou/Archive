@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="language" 		content="en" />
+        <meta name="identifier-url" content="localhost" />
+        <meta name="description" 	content="Connection page" />
+        <meta name="abstract" 		content="Connexion" />
+        <meta name="keywords" 		content="Connexion, login" />
+        <meta name="author" 		content="Gazo" />
+        <meta name="revisit-after" 	content="never" />
+        <meta name="copyright" 		content="Gazo" />
+        <meta name="viewport" 		content="width=device-width, initial-scale=1.0, shrink-to-fit=no"/>
+		
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+		
+        <title>Connexion Barnacles Server</title>
+		<meta name="title" content="Connexion Barnacles Server" />
+		
+		<link rel="icon" 		type="image/ico"	href="Resources/favicon.ico" />
+        <link rel="stylesheet" 	type="text/css" 	href="Frameworks/bootstrap/css/bootstrap.min.css"/>
+        <link rel="stylesheet" 	type="text/css" 	href="Design/styleMain.css"/>
+        <link rel="stylesheet" 	type="text/css" 	href="Design/styleConnexion.css"/>
+		
+        <!--[if lt IE 9]>
+           <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+           <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+	</head>
+	
+    <body>		
+		<!-- Content -->		
+        <div class="container" id="ContainerWrapper">	
+			<div class="row">
+				<header class="col-12">
+					<h1>Barnacles Panel</h1>
+				</header>
+				<div id="ConnexionWrapper" class="col-lg-8 offset-lg-2">
+					<form action="login" method="post">
+						<div class="form-group form-row">
+							<label class="col-12" for="identifiant">Account:</label>
+							<input type="text" class="form-control input-obscure <% if(error) { %>input-failed<% } %> col-12" id="identifiant" name="identifiant" placeholder="Identifiant" required>
+						</div>
+						<div class="form-group form-row">
+							<label class="col-12" for="password">Password:</label>
+							<input type="password" class="form-control input-obscure <% if(error) { %>input-failed<% } %> col-12" id="password" name="password" placeholder="Password" required>
+<% if(error) { %>
+							<label class="col-12 label-failed" for="password">Account or password erroned.</label>
+<% } %>
+						</div>
+						<button type="submit" class="btn btn-primary submit-obscure">Log in</button>
+					</form>
+				</div>
+			</div>
+		</div>
+		
+		<canvas id="canvas"></canvas>
+		
+		<!-- Scripts -->
+        <script src="Frameworks/jquery/jquery.min.js"></script>
+        <script src="Frameworks/popper/popper.min.js"></script>
+        <script src="Frameworks/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="Frameworks/bootstrap/js/bootstrap.min.js"></script>
+		<script src="Scripts/workground.js"></script>
+		<script src="Scripts/canvas.js"></script>
+		<script src="Scripts/centerMiddle.js"></script>
+	</body>
+</html>

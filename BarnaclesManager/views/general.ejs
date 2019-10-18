@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="language" 		content="en" />
+        <meta name="identifier-url" content="localhost/general" />
+        <meta name="description" 	content="Barnacles Global data view" />
+        <meta name="abstract" 		content="Barnacles's view" />
+        <meta name="keywords" 		content="Manager" />
+        <meta name="author" 		content="Gazo" />
+        <meta name="revisit-after" 	content="never" />
+        <meta name="copyright" 		content="Gazo" />
+        <meta name="viewport" 		content="width=device-width, initial-scale=1.0, shrink-to-fit=no"/>
+		
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+		
+        <title>Manager Barnacles</title>
+		<meta name="title" content="Manager Barnacles" />
+		
+		<link rel="icon" 		type="image/ico"	href="Resources/favicon.ico" />
+        <link rel="stylesheet" 	type="text/css" 	href="Frameworks/bootstrap/css/bootstrap.min.css"/>
+        <link rel="stylesheet" 	type="text/css" 	href="Design/styleMain.css"/>
+        <link rel="stylesheet" 	type="text/css" 	href="Design/styleGeneral.css"/>
+		<link rel="stylesheet"	type="text/css" 	href="Design/assets/css/font-awesome.css">
+		
+        <!--[if lt IE 9]>
+           <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+           <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+	</head>
+	
+    <body>
+		<!-- Content -->		
+        <div class="container-fluid">
+			<header>
+				<h1>Barnacles Panel</h1>
+			</header>
+			<div class="row">
+			
+				<!-- - - - - - - - - - ..... Menu .....  - - - - - - - - - -->
+				<nav class="col-lg-2 col-md-3 col-sm-4">
+					<header> Menu </header>
+					<ul>
+						<li class="selected noMouse">
+							<a href="/general">
+								<span class="fa fa-home"></span> General
+							</a>
+						</li>
+						<li class="">
+							<a href="/memory">
+								<span class="fa fa-database"></span> Memory
+							</a>
+						</li>
+						<li class="">
+							<a href="/config">
+								<span class="fa fa-cog"></span> Configuration
+							</a>
+						</li>
+						<li class=""> 
+							<a href="/logout">
+								<span class="fa fa-power-off"></span> Log out
+							</a>
+						</li>
+					</ul>
+				</nav>
+				
+				<!-- - - - - - - - - - ..... Content ..... - - - - - - - - - -->
+				<div class="col-lg-10 col-md-9 col-sm-8">
+					<main id="gestion">
+						<div id="__CONFIG" class="hidden">
+<% for(var i=0; i < config.length; i++) { %>
+							<input type="hidden" name="<%= config[i].label %>" value="<%= config[i].value %>" />
+<% } %>
+						</div>
+						
+						<div class="row">							
+							<article class="col-md-6" id="__sysUse">
+								<h2>System Usage</h2>
+								<div id="__SYS_USE" class="hidden">
+<% for(var i=0; i < data.SYS_USAGE.length; i++) { %>
+									<input type="hidden" name="<%= data.SYS_USAGE[i].label %>" value="<%= data.SYS_USAGE[i].value %>" />
+<% } %>
+								</div>
+								<canvas></canvas>
+							</article>
+							
+							<article class="col-md-6" id="__sdUse">
+								<h2>SD Card Usage</h2>
+								<div id="__SD_USE" class="hidden">
+<% for(var i=0; i < data.SD_CARD_USAGE.length; i++) { %>
+									<input type="hidden" name="<%= data.SD_CARD_USAGE[i].label %>" value="<%= data.SD_CARD_USAGE[i].value %>" />
+<% } %>
+								</div>
+								<canvas></canvas>
+							</article>
+							
+							<article class="col-md-12" id="__activities">
+								<h2>Recent activities</h2>
+								<div id="__ACTIVITIES" class="hidden">
+<% for(var i=0; i < data.RECENT_ACTIVITIES.length; i++) { %>
+									<input type="hidden" name="<%= data.RECENT_ACTIVITIES[i].label %>" value="<%= data.RECENT_ACTIVITIES[i].value %>" />
+<% } %>
+								</div>
+								<canvas></canvas>
+							</article>
+						</div>
+					</main>
+				</div>
+				
+				
+			</div>
+		</div>
+		
+		<!-- Scripts -->
+        <script src="Frameworks/jquery/jquery.min.js"></script>
+        <script src="Frameworks/popper/popper.min.js"></script>
+        <script src="Frameworks/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="Frameworks/bootstrap/js/bootstrap.min.js"></script>
+		<script src="Scripts/workground.js"></script>
+		<script src="Scripts/config.js"></script>
+		<script src="Scripts/donuts.js"></script>
+		<script src="Scripts/graphes.js"></script>
+	</body>
+</html>

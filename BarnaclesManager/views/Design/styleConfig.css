@@ -1,0 +1,34 @@
+.configbar {
+	border:none;
+}
+.configbar ul {
+	border-bottom:1px solid gray;
+}
+.configbar li {
+	border-radius:0px;
+	text-align:center;
+}
+
+.configForms .form-centered {
+	margin:auto;
+}
+.row:not(.configForms) ~ .row {
+	margin-top:25px;
+}
+
+fieldset {
+	border:1px solid var(--gray-color);
+	padding:20px;
+	margin-bottom:25px;
+}
+legend {
+	width:auto;
+	margin:0px;
+	padding:0 10px;
+	font-size:1.1em;
+	font-style:italic;
+}
+
+.autocomplete {
+	padding-right:15px;
+}

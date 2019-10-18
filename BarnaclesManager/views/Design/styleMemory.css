@@ -1,0 +1,159 @@
+h2 {
+	margin-left:35px;
+	text-decoration:underline;
+	
+}
+
+/* ------------------------------ Menu contextuel ------------------------------ */
+#ContextMenu {
+	position:absolute;
+	background:rgb(67,72,87);
+	color:rgb(197,202,217);
+	font-family:'Candara';
+	border-radius:5px;
+	padding:0;
+	margin:0;
+}
+#ContextMenu ul {
+	padding:0;
+	margin:0;
+	list-style-type:none;
+	border-radius:5px;
+}
+#ContextMenu li {
+	height:32px;
+	line-height:28px;
+	margin:0;	
+	border-radius:5px;
+}
+#ContextMenu li:hover {
+	background:rgb(70,83,99);
+}
+#ContextMenu li+li {
+	border-top:1px solid rgb(87,92,107);
+}
+#ContextMenu a {
+	color:rgb(220,220,225);
+	width:100%;
+	height:32px;
+	display:inline-block;
+	padding:0 25px;
+}
+#ContextMenu a:hover {
+	text-decoration:none;
+	color:white;
+}
+#ContextMenu hr {
+	margin:0;
+	padding:0;
+	border:rgba(180,180,180, 0.25) 1px solid;
+    border-style: inset;
+}
+
+
+/* ------------------------------ Popup ------------------------- */
+#modalCenter {
+	color:black;
+	font-family:Consolas;
+}
+#modalCenter ul {
+	list-style-type:none;
+}
+
+/* ------------------------------ Explorer ------------------------- */
+.explorer {
+	background:rgb(30,32,40);
+	border-radius:25px;
+	border:1.5px solid rgb(42,45,53);
+	margin-bottom:30px;
+	font-family:"Garamond";
+}
+.explorer form {
+	margin:0;
+	border-bottom:1.5px solid rgb(42,45,53);
+}
+.explorer .datas {
+	padding:15px 25px;
+	min-height:10vh;
+}
+
+.explorerElement {
+	margin-bottom:15px;
+	cursor:default;
+	padding:0;
+}
+
+.explorerElement.selected {
+	background:rgb(190,105,30);
+	border:rgb(255,166,80) 1px solid;
+	opacity:0.85;
+	margin: -1px 0px 14px 0px;
+}
+.explorerElement.selected p {
+	color:white;
+	opacity:1.25;
+}
+.explorerElement:hover {
+	/* background:rgb(42,45,53); */
+}
+.explorerElement-over-droppable {
+	background:rgb(42,45,73);
+	border:1px solid rgb(72,75,103);
+	margin:-1px 0px 14px 0px;
+}
+.explorerElement-hover {
+	background:rgb(42,45,53);
+}
+
+.explorerElement.selected:hover {
+	background:rgb(190,105,30);
+}
+.explorerElementFigure {
+	min-height:70px;
+    background-repeat: no-repeat;
+    background-size: contain;
+	background-position: center;
+}
+.file {
+	background-image:url('../Resources/File.png');
+}
+.video {
+	background-image:url('../Resources/Video.png');
+}
+.folder {
+	background-image:url('../Resources/Folder.png');
+}
+.explorerElement p {
+	text-align:center;
+	position:relative;
+	word-wrap: break-word;
+	padding: 0 5px;
+}
+
+.explorerMissing {
+	background:rgb(32,34,42);
+	border-radius:25px;
+	border:1.5px solid rgb(42,45,53);
+	padding:30px;
+}
+.explorerMissing p {
+	color:rgb(220,220,220);
+}
+
+.file+p {
+	color:rgb(225,225,235);
+}
+.video+p {
+	color:rgb(225,225,235);
+}
+.folder+p {
+	color:rgb(155,155,175);
+}
+
+.dragImg {
+	position:absolute;
+	top:0px;
+	left:0px;	
+}
+
+

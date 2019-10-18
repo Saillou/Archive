@@ -1,0 +1,14 @@
+# ---- CONFIGURATION ---- ##
+
+# Camera Preferences
+deviceName:"WiFi_Barnacle"
+splitting:False
+recording:False
+defaultPath:"/"
+
+# Network
+password:admin
+
+# Panel Preferences
+grapheType:"video"
+grapheSize:15

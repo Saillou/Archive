@@ -1,0 +1,14 @@
+# ---- CONFIGURATION ---- ##
+
+# Camera Preferences
+deviceName:"WiFi_Device"
+splitting:False
+recording:False
+defaultPath:"/"
+
+# Network
+password:admin
+
+# Panel Preferences
+grapheType:"time"
+grapheSize:15

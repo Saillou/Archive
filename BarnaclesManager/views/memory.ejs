@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="language" 		content="en" />
+        <meta name="identifier-url" content="localhost/memory" />
+        <meta name="description" 	content="Memory's rock64 viewer and manager" />
+        <meta name="abstract" 		content="Memory" />
+        <meta name="keywords" 		content="Memory" />
+        <meta name="author" 		content="Gazo" />
+        <meta name="revisit-after" 	content="never" />
+        <meta name="copyright" 		content="Gazo" />
+        <meta name="viewport" 		content="width=device-width, initial-scale=1.0, shrink-to-fit=no"/>
+		
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+		
+        <title>Memory Barnacles</title>
+		<meta name="title" content="Memory Barnacles" />
+		
+		<link rel="icon" 		type="image/ico"	href="Resources/favicon.ico" />
+        <link rel="stylesheet" 	type="text/css" 	href="Frameworks/bootstrap/css/bootstrap.min.css"/>
+        <link rel="stylesheet" 	type="text/css" 	href="Design/styleMain.css"/>
+		<link rel="stylesheet" 	type="text/css" 	href="Design/styleMemory.css"/>
+		<link rel="stylesheet"	type="text/css" 	href="Design/assets/css/font-awesome.css">
+		
+        <!--[if lt IE 9]>
+           <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+           <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+	</head>
+	
+    <body ondragstart="return false;" ondrop="return false;">
+		<!-- Error if any -->	
+		<div id="error_form" style="display:none" onclick='style.display="none"; $("form")[0].submit();'>
+		  <div class="wrapper_error">
+			<h1>Some errors have been detected : </h1>
+			<ul id="__list_error">
+			</ul>
+		  </div>
+		</div>
+		
+		<!-- Infomation popup if any -->	
+		<div class="modal fade" id="modalCenter" tabindex="-1" role="dialog" aria-labelledby="modalCenterTitle" aria-hidden="true">
+		  <div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+			  <div class="modal-header">
+				<h5 class="modal-title" id="ModalLongTitle">
+					<!-- Title -->
+				</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				  <span aria-hidden="true">&times;</span>
+				</button>
+			  </div>
+			  <div class="modal-body" id="ModalLongBody">
+				<!-- Content -->
+			  </div>
+			  <div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			  </div>
+			</div>
+		  </div>
+		</div>
+
+		<!-- Content -->		
+        <div class="container-fluid">
+			<header>
+				<h1>Barnacles Panel</h1>
+			</header>
+			<div class="row">
+			
+				<!-- - - - - - - - - - ..... Menu .....  - - - - - - - - - -->
+				<nav class="col-lg-2 col-md-3 col-sm-4">
+					<header> Menu </header>
+					<ul>
+						<li class="">
+							<a href="/general">
+								<span class="fa fa-home"></span> General
+							</a>
+						</li>
+						<li class="selected noMouse">
+							<a href="/memory">
+								<span class="fa fa-database"></span> Memory
+							</a>
+						</li>
+						<li class="">
+							<a href="/config">
+								<span class="fa fa-cog"></span> Configuration
+							</a>
+						</li>
+						<li class=""> 
+							<a href="/logout">
+								<span class="fa fa-power-off"></span> Log out
+							</a>
+						</li>
+					</ul>
+				</nav>
+				
+				<!-- - - - - - - - - - ..... Content ..... - - - - - - - - - -->
+				<main class="col-lg-10 col-md-9 col-sm-8" id="_fullExplorer">
+				
+					<h2 class="noMouse">System</h2>
+<% if(SYS.valide) { %>
+					<div class="explorer" id="_system">
+						<!-- - - - - - - - - - URL  - - - - - - - - - -->
+						<form class="row" method="post" autocomplete="off">
+							<button type="submit" class="btn submit-obscure col-md-1 col-sm-2" data-toggle="tooltip" data-placement="left" title="Go">
+								<span class="fa fa-send"></span>
+							</button>
+							<ul class="col-md-10 col-sm-8 autocomplete">
+								<li>
+									<input type="hidden" name="virtualDisk" value="<%= SYS.virtualDisk %>"/>
+									<input type="text" class="form-control input-obscure" name="path" value="<%= SYS.path %>" autocomplete="off">
+								</li>
+							</ul>
+							<button type="submit" class="btn btnUp submit-obscure col-md-1 col-sm-2" name="up" value="up" data-toggle="tooltip" data-placement="top" title="Return to parent">
+								<span class="fa fa-level-up"></span>
+							</button>
+							<input type="hidden" name="otherPath" value="<%= SD.path %>"/>
+						</form>
+						
+						
+						<!-- - - - - - - - - - Datas  - - - - - - - - - -->
+						<div class="row datas">
+<% for(var i=0; i < SYS.ELEMENTS.length; i++) { %>
+							<div class="col-xl-1 col-lg-2 col-md-3 col-sm-4 explorerElement">
+								<div class="explorerElementFigure <%= SYS.ELEMENTS[i].icon %> _<%= SYS.ELEMENTS[i].type %>"></div>
+								<p class="noMouse"><%= SYS.ELEMENTS[i].name %></p>
+							</div>
+<% 	} %>
+						</div>
+					</div>
+<% } else { %>
+					<div class="explorerMissing">
+						<p>The file system is missing or not detected. No datas nor actions are available.</p>
+					</div>
+<% } %>
+					
+					<h2 class="noMouse">SD card</h2>
+<% if(SD.valide) { %>
+					<div class="explorer" id="_sd">
+						<!-- - - - - - - - - - URL  - - - - - - - - - -->
+						<form class="row" method="post" autocomplete="off">
+							<button type="submit" class="btn submit-obscure col-md-1 col-sm-2" data-toggle="tooltip" data-placement="left" title="Go">
+								<span class="fa fa-send"></span>
+							</button>
+							<ul class="col-md-10 col-sm-8 autocomplete">
+								<li>
+									<input type="hidden" name="virtualDisk" value="<%= SD.virtualDisk %>"/>
+									<input type="text" class="form-control input-obscure" name="path" value="<%= SD.path %>" autocomplete="off">
+								</li>
+							</ul>
+							<button type="submit" class="btn btnUp submit-obscure col-md-1 col-sm-2" name="up" value="up" data-toggle="tooltip" data-placement="top" title="Return to parent">
+								<span class="fa fa-level-up"></span>
+							</button>
+							<input type="hidden" name="otherPath" value="<%= SYS.path %>"/>
+						</form>
+						
+						<!-- - - - - - - - - - Datas  - - - - - - - - - -->
+						<div class="row datas">
+<% 	for(var i=0; i < SD.ELEMENTS.length; i++) { %>
+							<div class="col-xl-1 col-lg-2 col-md-3 col-sm-4 explorerElement">
+								<div class="explorerElementFigure <%= SD.ELEMENTS[i].icon %> _<%= SD.ELEMENTS[i].type %>"></div>
+								<p class="noMouse"><%= SD.ELEMENTS[i].name %></p>
+							</div>
+<% 	} %>
+						</div>
+					</div>
+<% } else { %>
+					<div class="explorerMissing">
+						<p>The SD card is missing or not detected. No datas nor actions are available.</p>
+					</div>
+<% } %>
+					
+				</main>
+				
+			</div>
+		</div>
+		
+		<!-- Scripts -->
+        <script src="Frameworks/jquery/jquery.min.js"></script>
+        <script src="Frameworks/popper/popper.min.js"></script>
+        <script src="Frameworks/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="Frameworks/bootstrap/js/bootstrap.min.js"></script>
+		<script src="Scripts/workground.js"></script>
+		<script src="Scripts/autocomplete.js"></script>
+		<script src="Scripts/explorer.js"></script>
+	</body>
+</html>
